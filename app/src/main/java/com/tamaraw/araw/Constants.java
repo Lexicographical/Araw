@@ -2,8 +2,10 @@ package com.tamaraw.araw;
 
 import android.bluetooth.BluetoothAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -32,12 +34,35 @@ public class Constants {
     public static LineChart chart;
     public static LineDataSet dataset;
     public static LineData data;
+    public static int dataSize = 10;
 
-    public static ImageButton[] chartButtons = new ImageButton[5];
-    public static boolean coStatus = false;
+    public static ImageButton[] chartButtons = new ImageButton[6];
 
     public static TextView coLabel;
     public static ImageView coStatusIcon;
     public static Button testAlarm;
+    public static EditText[] inputs = new EditText[5];
+    public static String[] contacts = new String[5];
+    public static Button btnSavePhoneNum;
+    public static Button btnSMSTest;
+    public static LinearLayout settingsContainer;
+    /**
+     * Snooze state of carbon monoxide alarm
+     * true - alarm will not go off (disabled in 30s)
+     * false - alarm will go off
+     */
+    public static boolean coSnooze = false;
+    public static boolean smsSnooze = false;
+
+    /**
+     * Status of carbon monoxide levels
+     * true - danger levels
+     * false - safe levels
+     */
+    public static boolean coStatus = false;
+
+    public static boolean coDialogOpen = false;
+
+    public static boolean DEBUG = false;
 
 }

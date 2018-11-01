@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission-sdk-23 android:name="android.permission.SEND_SMS"/>
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_SMS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
@@ -12,13 +17,15 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContentActivity"></activity>
+        <activity android:name=".ContentActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

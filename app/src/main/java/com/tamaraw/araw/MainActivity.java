@@ -1,11 +1,15 @@
 package com.tamaraw.araw;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,11 +29,20 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity {
 
     private final static int REQUEST_ENABLE_BT = 1;
+    private static final int PERMISSION_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
+                Log.d("Permission", "Missing permission, requesting now.");
+                String[] permissions = {Manifest.permission.SEND_SMS};
+                requestPermissions(permissions, PERMISSION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE);
+            }
+        }
         try {
             setupBT();
         } catch (Exception e) {
@@ -53,7 +66,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    pairedDevicesList(Constants.adapter);
+                    if (Constants.DEBUG) {
+                        startReading();
+                    } else {
+                        pairedDevicesList(Constants.adapter);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

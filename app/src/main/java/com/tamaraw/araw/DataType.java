@@ -9,19 +9,20 @@ import android.support.v4.content.ContextCompat;
 
 public enum DataType {
 
-    Temperature(R.color.temperature, "(\u00b0C)", -40, 80),
-    Humidity(R.color.humidity, "", 0, 100),
-    HeatIndex(R.color.heatindex, "(\u00b0C)", -40, 80),
-    Pressure(R.color.pressure, "(KPa)", 0, 110),
-    CarbonMonoxide(R.color.carbonmonoxide, "ppm", 0, 10);
+    Temperature(R.color.temperature, "(\u00b0C)", -40, 80, 40),
+    Humidity(R.color.humidity, "", 0, 100, 90),
+    HeatIndex(R.color.heatindex, "(\u00b0C)", -40, 80, 40),
+    Pressure(R.color.pressure, "(KPa)", 0, 110, 110),
+    CarbonMonoxide(R.color.carbonmonoxide, "ppm", 0, 10, 0);
 
     String name;
     String unit;
     int color;
     int min;
     int max;
+    int alarm;
 
-    DataType(int color, String unit, int min, int max) {
+    DataType(int color, String unit, int min, int max, int alarm) {
         this.name = name();
         if (name.equals("HeatIndex")) {
             this.name = "Heat Index";
@@ -32,6 +33,7 @@ public enum DataType {
         this.unit = unit;
         this.min = min;
         this.max = max;
+        this.alarm = alarm;
     }
 
     public String getName() {

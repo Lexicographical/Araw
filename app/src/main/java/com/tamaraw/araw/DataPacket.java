@@ -11,8 +11,7 @@ public class DataPacket {
     private double pressure;
     private double heatIndex;
     private boolean co;
-
-    private final double R0 = 0;
+    public boolean danger = false;
 
     public DataPacket(double[] data) {
         this.temp = data[0];
@@ -20,6 +19,13 @@ public class DataPacket {
         this.heatIndex = data[2];
         this.pressure = data[3] / 1000;
         this.co = data[4] == 0;
+        if (temp > DataType.Temperature.alarm ||
+                humidity > DataType.Humidity.alarm ||
+                heatIndex > DataType.HeatIndex.alarm ||
+                pressure > DataType.Pressure.alarm ||
+                this.co) {
+            this.danger = true;
+        }
     }
 
     public double getTemp() {

@@ -11,8 +11,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="30dp"
         android:orientation="vertical"
+        android:paddingBottom="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="8dp">
@@ -20,8 +20,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:gravity="center_vertical|center_horizontal"
             android:background="@color/bgDarker"
+            android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal">
 
             <ImageButton
@@ -84,17 +84,127 @@
                 android:scaleType="centerCrop"
                 app:srcCompat="@mipmap/co_icon" />
 
+            <ImageButton
+                android:id="@+id/buttonSettings"
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/settings" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Emergency Contact Info"
+                android:textColor="@color/textColor"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/inputPhoneNum1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/chartColor"
+                android:hint="[1] Enter phone number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+            <EditText
+                android:id="@+id/inputPhoneNum2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/chartColor"
+                android:hint="[2] Enter phone number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+            <EditText
+                android:id="@+id/inputPhoneNum3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/chartColor"
+                android:hint="[3] Enter phone number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+            <EditText
+                android:id="@+id/inputPhoneNum4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/chartColor"
+                android:hint="[4] Enter phone number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+            <EditText
+                android:id="@+id/inputPhoneNum5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/chartColor"
+                android:hint="[5] Enter phone number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" />
+
+            <Button
+                android:id="@+id/btnSavePhoneNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/btnTestSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Test SMS" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/dataLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
             android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="Temperature: "
             android:textAlignment="center"
-            android:textColor="@color/textColor"
-            android:text="Temperature: " />
+            android:textColor="@color/textColor" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/dataChart"
@@ -128,8 +238,8 @@
             android:id="@+id/testAlarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/test_alarm"
             android:layout_gravity="center_horizontal"
+            android:text="@string/test_alarm"
             android:textAlignment="center" />
 
     </LinearLayout>
